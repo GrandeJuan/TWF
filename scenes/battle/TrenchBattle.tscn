@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/battle/battle_manager.gd" id="1_battle_mgr"]
 [ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/EventPopup.tscn" id="3_event"]
 
 [node name="TrenchBattle" type="Node2D"]
 
@@ -26,6 +27,8 @@ layer = 10
 
 [node name="EventLayer" type="CanvasLayer" parent="."]
 layer = 20
+
+[node name="EventPopup" parent="EventLayer" instance=ExtResource("3_event")]
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("1_battle_mgr")
