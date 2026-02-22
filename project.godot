@@ -13,6 +13,15 @@ config_version=5
 config/name="TWF"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+run/main_scene="res://main.tscn"
+
+[autoload]
+
+GameState="*res://autoloads/game_state.gd"
+EventBus="*res://autoloads/event_bus.gd"
+ResourceManager="*res://autoloads/resource_manager.gd"
+DoctrineManager="*res://autoloads/doctrine_manager.gd"
+EventManager="*res://autoloads/event_manager.gd"
 
 [physics]
 
