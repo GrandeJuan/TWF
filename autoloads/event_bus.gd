@@ -16,6 +16,12 @@ signal battle_started(front_data: Resource)
 ## Emitted when a battle ends. Result is "victory" or "defeat".
 signal battle_ended(result: String)
 
+## Emitted when a unit is destroyed (health reached 0).
+signal unit_destroyed(unit: Node)
+
+## Emitted when a unit's morale breaks. Result is "broken" or "inspired".
+signal unit_morale_break(unit: Node, result: String)
+
 # --- Event Signals ---
 
 ## Emitted when a narrative event is triggered (base or battle phase).

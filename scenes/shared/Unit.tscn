@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/battle/unit.gd" id="1_unit"]
+[ext_resource type="Script" path="res://scripts/battle/unit_stats.gd" id="2_unit_stats"]
+
+[node name="Unit" type="CharacterBody2D"]
+script = ExtResource("1_unit")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="UnitStats" type="Node" parent="."]
+script = ExtResource("2_unit_stats")
