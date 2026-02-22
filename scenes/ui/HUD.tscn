@@ -1,0 +1,153 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/battle/battle_hud.gd" id="1_hud"]
+[ext_resource type="Script" path="res://scripts/battle/special_action_button.gd" id="2_action"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hud")
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 40.0
+theme_override_constants/separation = 12
+
+[node name="ManpowerLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "Manpower:"
+
+[node name="ManpowerValue" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "0"
+
+[node name="Sep1" type="VSeparator" parent="TopBar"]
+layout_mode = 2
+
+[node name="SuppliesLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "Supplies:"
+
+[node name="SuppliesValue" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "0"
+
+[node name="Sep2" type="VSeparator" parent="TopBar"]
+layout_mode = 2
+
+[node name="RPLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "RP:"
+
+[node name="RPValue" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "0"
+
+[node name="Spacer" type="Control" parent="TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PauseButton" type="Button" parent="TopBar"]
+layout_mode = 2
+text = "PAUSE"
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -56.0
+offset_right = -8.0
+offset_bottom = -8.0
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="ArtilleryStrike" type="Button" parent="BottomBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 48)
+text = "Artillery Strike
+[1]"
+script = ExtResource("2_action")
+action_id = "artillery_strike"
+action_name = "Artillery Strike"
+cooldown_duration = 30.0
+max_uses = 1
+
+[node name="CooldownLabel" type="Label" parent="BottomBar/ArtilleryStrike"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+horizontal_alignment = 1
+vertical_alignment = 1
+visible = false
+
+[node name="Reinforcements" type="Button" parent="BottomBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 48)
+text = "Reinforcements
+[1]"
+script = ExtResource("2_action")
+action_id = "reinforcements"
+action_name = "Reinforcements"
+cooldown_duration = 45.0
+max_uses = 1
+
+[node name="CooldownLabel" type="Label" parent="BottomBar/Reinforcements"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+horizontal_alignment = 1
+vertical_alignment = 1
+visible = false
+
+[node name="CommissarOrder" type="Button" parent="BottomBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 48)
+text = "Commissar's Order
+[2]"
+script = ExtResource("2_action")
+action_id = "commissar_order"
+action_name = "Commissar's Order"
+cooldown_duration = 20.0
+max_uses = 2
+
+[node name="CooldownLabel" type="Label" parent="BottomBar/CommissarOrder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+horizontal_alignment = 1
+vertical_alignment = 1
+visible = false
