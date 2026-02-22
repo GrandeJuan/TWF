@@ -1,0 +1,142 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/base/command_hq.gd" id="1_hq"]
+
+[node name="CommandHQ" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hq")
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "COMMAND HQ"
+
+[node name="Sep0" type="VSeparator" parent="MainLayout/TopBar"]
+layout_mode = 2
+
+[node name="ManpowerLabel" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "Manpower:"
+
+[node name="ManpowerValue" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "0"
+
+[node name="Sep1" type="VSeparator" parent="MainLayout/TopBar"]
+layout_mode = 2
+
+[node name="SuppliesLabel" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "Supplies:"
+
+[node name="SuppliesValue" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "0"
+
+[node name="Sep2" type="VSeparator" parent="MainLayout/TopBar"]
+layout_mode = 2
+
+[node name="RPLabel" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "RP:"
+
+[node name="RPValue" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "0"
+
+[node name="TopSep" type="HSeparator" parent="MainLayout"]
+layout_mode = 2
+
+[node name="ContentArea" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="ActionsPanel" type="VBoxContainer" parent="MainLayout/ContentArea"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 0)
+theme_override_constants/separation = 12
+
+[node name="ActionsTitle" type="Label" parent="MainLayout/ContentArea/ActionsPanel"]
+layout_mode = 2
+text = "— Actions —"
+horizontal_alignment = 1
+
+[node name="ResearchButton" type="Button" parent="MainLayout/ContentArea/ActionsPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "Research Doctrines"
+
+[node name="RecruitButton" type="Button" parent="MainLayout/ContentArea/ActionsPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "Recruit Units"
+
+[node name="IntelButton" type="Button" parent="MainLayout/ContentArea/ActionsPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "Review Intel"
+
+[node name="ActionsSpacer" type="Control" parent="MainLayout/ContentArea/ActionsPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ProceedButton" type="Button" parent="MainLayout/ContentArea/ActionsPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 48)
+text = "Proceed to Map >>"
+
+[node name="VertSep" type="VSeparator" parent="MainLayout/ContentArea"]
+layout_mode = 2
+
+[node name="IntelPanel" type="VBoxContainer" parent="MainLayout/ContentArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="IntelTitle" type="Label" parent="MainLayout/ContentArea/IntelPanel"]
+layout_mode = 2
+text = "— Intelligence Report —"
+horizontal_alignment = 1
+
+[node name="TierLabel" type="Label" parent="MainLayout/ContentArea/IntelPanel"]
+layout_mode = 2
+text = "Current Theater: Tier 1 — The Outer Ruins"
+
+[node name="FrontsTitle" type="Label" parent="MainLayout/ContentArea/IntelPanel"]
+layout_mode = 2
+text = "Active Fronts:"
+
+[node name="FrontsList" type="VBoxContainer" parent="MainLayout/ContentArea/IntelPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="BottomSep" type="HSeparator" parent="MainLayout"]
+layout_mode = 2
+
+[node name="StatusBar" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 32)
+
+[node name="StatusLabel" type="Label" parent="MainLayout/StatusBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Awaiting orders..."
