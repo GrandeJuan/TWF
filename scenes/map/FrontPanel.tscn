@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/map/front_panel.gd" id="1_panel"]
+
+[node name="FrontPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(260, 0)
+size_flags_horizontal = 3
+script = ExtResource("1_panel")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FrontName" type="Label" parent="VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Front Name"
+
+[node name="PressureLabel" type="Label" parent="VBox/Header"]
+layout_mode = 2
+text = "Pressure: Low"
+
+[node name="StatusLabel" type="Label" parent="VBox/Header"]
+layout_mode = 2
+text = "[ACTIVE]"
+
+[node name="Sep1" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="UnitsSection" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="UnitsHeader" type="HBoxContainer" parent="VBox/UnitsSection"]
+layout_mode = 2
+
+[node name="UnitsTitle" type="Label" parent="VBox/UnitsSection/UnitsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Assigned Units:"
+
+[node name="UnitsCount" type="Label" parent="VBox/UnitsSection/UnitsHeader"]
+layout_mode = 2
+text = "0 units"
+
+[node name="UnitsList" type="VBoxContainer" parent="VBox/UnitsSection"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Sep2" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="SupplySection" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SupplyTitle" type="Label" parent="VBox/SupplySection"]
+layout_mode = 2
+text = "Supplies:"
+
+[node name="SupplySlider" type="HSlider" parent="VBox/SupplySection"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 100.0
+step = 5.0
+value = 0.0
+
+[node name="SupplyValue" type="Label" parent="VBox/SupplySection"]
+layout_mode = 2
+custom_minimum_size = Vector2(32, 0)
+text = "0"
+horizontal_alignment = 2
+
+[node name="DoctrinesLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Doctrines: None"

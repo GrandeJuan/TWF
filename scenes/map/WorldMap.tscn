@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/map/world_map.gd" id="1_map"]
+
+[node name="WorldMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_map")
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+theme_override_constants/separation = 12
+
+[node name="TierLabel" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "WORLD MAP"
+
+[node name="ManpowerLabel" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "Manpower:"
+
+[node name="ManpowerValue" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "0"
+
+[node name="Sep1" type="VSeparator" parent="MainLayout/TopBar"]
+layout_mode = 2
+
+[node name="SuppliesLabel" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "Supplies:"
+
+[node name="SuppliesValue" type="Label" parent="MainLayout/TopBar"]
+layout_mode = 2
+text = "0"
+
+[node name="TopSep" type="HSeparator" parent="MainLayout"]
+layout_mode = 2
+
+[node name="FrontsArea" type="ScrollContainer" parent="MainLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="FrontsContainer" type="HBoxContainer" parent="MainLayout/FrontsArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="BottomSep" type="HSeparator" parent="MainLayout"]
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+theme_override_constants/separation = 12
+
+[node name="BackButton" type="Button" parent="MainLayout/BottomBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 0)
+text = "<< Back to HQ"
+
+[node name="StatusLabel" type="Label" parent="MainLayout/BottomBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Assign troops and supplies, then confirm deployment."
+
+[node name="DeployButton" type="Button" parent="MainLayout/BottomBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 0)
+text = "Deploy Forces >>"
