@@ -23,9 +23,19 @@ extends Control
 @onready var intel_btn: Button = $MainLayout/ContentArea/ActionsPanel/IntelButton
 @onready var proceed_btn: Button = $MainLayout/ContentArea/ActionsPanel/ProceedButton
 
+# --- Node References: Overlays ---
+
+@onready var doctrine_panel: DoctrinePanel = $DoctrinePanel
+
 # --- Node References: Status ---
 
 @onready var status_label: Label = $MainLayout/StatusBar/StatusLabel
+
+
+# --- Doctrine Data ---
+# Defined here temporarily. Will move to data/ files later.
+
+var _doctrines: Array[DoctrineData] = []
 
 
 # --- Lifecycle ---
@@ -39,6 +49,9 @@ func _ready() -> void:
 
 	# Listen to resource changes to keep the display updated.
 	EventBus.resource_changed.connect(_on_resource_changed)
+
+	# Build doctrine data (temporary — will load from data/ files later).
+	_doctrines = _build_doctrine_data()
 
 	# Initialize displays.
 	_refresh_resources()
@@ -61,8 +74,7 @@ func _on_resource_changed(resource_type: String, new_value: int) -> void:
 
 ## Opens the doctrine research panel.
 func _on_research_pressed() -> void:
-	# TODO: Show DoctrinePanel overlay with available doctrines.
-	_set_status("Doctrine research panel not yet available.")
+	doctrine_panel.show_panel(_doctrines)
 
 
 ## Opens the unit recruitment panel.
@@ -131,3 +143,48 @@ func _get_tier_name(tier: int) -> String:
 ## Sets the status bar text at the bottom of the screen.
 func _set_status(text: String) -> void:
 	status_label.text = text
+
+
+## Builds the initial set of doctrines. Temporary until data/ files are loaded.
+func _build_doctrine_data() -> Array[DoctrineData]:
+	var list: Array[DoctrineData] = []
+
+	var d1 := DoctrineData.new()
+	d1.id = "concentrated_barrage"
+	d1.display_name = "Concentrated Barrage"
+	d1.description = "Unlocks the Artillery Strike special action in battle."
+	d1.cost_rp = 40
+	d1.tier = 1
+	d1.effect_type = "unlock"
+	list.append(d1)
+
+	var d2 := DoctrineData.new()
+	d2.id = "iron_discipline"
+	d2.display_name = "Iron Discipline"
+	d2.description = "Units hold position longer before morale breaks."
+	d2.cost_rp = 30
+	d2.tier = 1
+	d2.effect_type = "passive"
+	list.append(d2)
+
+	var d3 := DoctrineData.new()
+	d3.id = "forward_supplies"
+	d3.display_name = "Forward Supplies"
+	d3.description = "Reduces Supply drain during prolonged battles."
+	d3.cost_rp = 50
+	d3.tier = 2
+	d3.prerequisites = ["iron_discipline"]
+	d3.effect_type = "passive"
+	list.append(d3)
+
+	var d4 := DoctrineData.new()
+	d4.id = "grakk_pattern_recognition"
+	d4.display_name = "Grakk Pattern Recognition"
+	d4.description = "Events in battle give more information before choosing."
+	d4.cost_rp = 60
+	d4.tier = 2
+	d4.prerequisites = ["concentrated_barrage"]
+	d4.effect_type = "passive"
+	list.append(d4)
+
+	return list

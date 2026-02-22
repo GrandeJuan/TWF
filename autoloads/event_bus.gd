@@ -29,6 +29,9 @@ signal event_triggered(event_data: Resource)
 
 # --- Doctrine Signals ---
 
+## Emitted when a doctrine is successfully researched.
+signal doctrine_researched(doctrine_id: String)
+
 ## Emitted when a doctrine is activated during battle.
 signal doctrine_activated(doctrine_id: String)
 

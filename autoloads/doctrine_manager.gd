@@ -21,8 +21,8 @@ func research(doctrine_id: String) -> bool:
 		push_warning("DoctrineManager: Doctrine '%s' is already researched." % doctrine_id)
 		return false
 
-	# TODO: Check prerequisites and RP cost via ResourceManager before allowing research.
 	researched.append(doctrine_id)
+	EventBus.doctrine_researched.emit(doctrine_id)
 	return true
 
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/base/command_hq.gd" id="1_hq"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DoctrinePanel.tscn" id="2_doctrine"]
 
 [node name="CommandHQ" type="Control"]
 layout_mode = 3
@@ -140,3 +141,5 @@ custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Awaiting orders..."
+
+[node name="DoctrinePanel" parent="." instance=ExtResource("2_doctrine")]
